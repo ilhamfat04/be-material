@@ -1,12 +1,26 @@
-function calculate(event) {
-    event.preventDefault()
+let theme = "dark";
 
-    const firstOperand = document.getElementById("first-oprnd").value
-    const secondOperand = document.getElementById("sec-oprnd").value
-    const operator = document.getElementById("opr").options[opr.selectedIndex].text
+function toggleTheme(color) {
+  theme = color;
+  changeTheme();
+}
 
-    // Have not used conditions because it's for the next topic
-    const result = eval(firstOperand + operator + secondOperand)
-
-    document.getElementById("result").innerText = result
+function changeTheme() {
+  switch (theme) {
+    case "dark":
+      document
+        .getElementById("body")
+        .setAttribute("style", "background-color:black;");
+      break;
+    case "mono":
+      document
+        .getElementById("body")
+        .setAttribute("style", "background-color:gray;");
+      break;
+    default:
+      document
+        .getElementById("body")
+        .setAttribute("style", "background-color:white;");
+      break;
+  }
 }
